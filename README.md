@@ -1,5 +1,7 @@
-jaxb-like-message-parser [![Build Status](https://secure.travis-ci.org/javadev/jaxb-like-message-parser.png)](http://travis-ci.org/javadev/jaxb-like-message-parser)
+jaxb-like-message-parser
 ========================
+
+[![Build Status](https://secure.travis-ci.org/javadev/jaxb-like-message-parser.svg)](http://travis-ci.org/javadev/jaxb-like-message-parser)
 
 The annotation based message parser
 
