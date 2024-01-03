@@ -34,7 +34,7 @@ public class SeparatorTest extends TestCase {
 
         @Separator(between = "[between]")
         @Segment(adapter = TestAdapter.class, count = 99)
-        List<String> strs = new ArrayList();
+        List<String> strs = new ArrayList<>();
 
 
         public String getStr1() {

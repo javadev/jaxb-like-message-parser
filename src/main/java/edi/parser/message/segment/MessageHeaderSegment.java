@@ -1,9 +1,9 @@
 package edi.parser.message.segment;
 
+import edi.parser.engine.SegmentDeclarationTypeA;
 import edi.parser.message.adapter.IntegerAdapter;
 import edi.parser.message.adapter.StringAdapter;
 import edi.parser.message.common.SegmentElement;
-import edi.parser.engine.SegmentDeclarationTypeA;
 
 @SegmentDeclarationTypeA(name = "UNH")
 public class MessageHeaderSegment extends AbstractSegment {

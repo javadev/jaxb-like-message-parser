@@ -1,12 +1,12 @@
 package edi.parser.message.common.parser;
 
-import edi.parser.message.common.SegmentCompositeElement;
 import edi.parser.engine.Adapter;
 import edi.parser.engine.impl.Mapping;
+import edi.parser.message.common.SegmentCompositeElement;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.reflect.Field;
 
 public class CompositeElementMapping extends Mapping {
     private Class elementClass;

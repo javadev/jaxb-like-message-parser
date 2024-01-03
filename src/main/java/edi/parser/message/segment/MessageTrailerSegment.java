@@ -1,8 +1,8 @@
 package edi.parser.message.segment;
 
+import edi.parser.engine.SegmentDeclarationTypeA;
 import edi.parser.message.adapter.IntegerAdapter;
 import edi.parser.message.common.SegmentElement;
-import edi.parser.engine.SegmentDeclarationTypeA;
 
 @SegmentDeclarationTypeA(name = "UNT")
 public class MessageTrailerSegment extends AbstractSegment {

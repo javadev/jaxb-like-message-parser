@@ -8,5 +8,5 @@ public interface EnchancedAdapter<T> extends Adapter<T> {
      * @param segmentReader
      * @return null if can\t parse segemnt, Object if parse segemnt, and thrown ParseException if segement data incorrect
      */
-    public T deserialize(SegmentReader segmentReader) throws ParseException;
+    T deserialize(SegmentReader segmentReader) throws ParseException;
 }

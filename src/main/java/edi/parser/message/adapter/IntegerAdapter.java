@@ -4,12 +4,11 @@ import edi.parser.engine.CustomizableAdapter;
 import edi.parser.engine.EnchancedAdapter;
 import edi.parser.engine.ParseException;
 import edi.parser.engine.SegmentReader;
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.log4j.Logger;
 
 public class IntegerAdapter implements EnchancedAdapter, CustomizableAdapter {
     private static final Logger LOG = Logger.getLogger(IntegerAdapter.class);

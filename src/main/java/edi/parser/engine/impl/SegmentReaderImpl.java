@@ -2,12 +2,11 @@ package edi.parser.engine.impl;
 
 import edi.parser.engine.ParseException;
 import edi.parser.engine.SegmentReader;
-
 import org.apache.log4j.Logger;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * This class has implementation of character stream,
@@ -82,6 +81,7 @@ public class SegmentReaderImpl implements SegmentReader, Cloneable {
     public int getProsition() {
         return i;
     }
+
     @Override
     public SegmentReader clone() {
         SegmentReaderImpl readerImpl = null;

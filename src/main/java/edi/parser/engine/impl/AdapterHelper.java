@@ -14,7 +14,7 @@ public class AdapterHelper {
         }
     }
 
-    public static Adapter create(Class< ? extends Adapter> aClass, Field field) {
+    public static Adapter create(Class<? extends Adapter> aClass, Field field) {
         try {
             Adapter result = create(aClass);
             if (result instanceof CustomizableAdapter) {

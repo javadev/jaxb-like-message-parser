@@ -1,30 +1,16 @@
 package edi.parser.engine.impl;
 
+import edi.parser.engine.*;
 import edi.parser.message.EdifactMessageConstants;
 import edi.parser.message.common.SegmentCompositeElement;
 import edi.parser.message.common.SegmentElement;
-import edi.parser.util.ReflectionUtil;
-import edi.parser.engine.Adapter;
-import edi.parser.engine.BindAnnotation;
-import edi.parser.engine.BindClass;
-import edi.parser.engine.CustomizableAdapter;
-import edi.parser.engine.Group;
-import edi.parser.engine.MessageDeclaration;
-import edi.parser.engine.ParseException;
-import edi.parser.engine.ParserBuildException;
-import edi.parser.engine.Segment;
-import edi.parser.engine.Separator;
-import edi.parser.engine.EnchancedAdapter;
 import edi.parser.tty.typeB.common.Parser;
 import edi.parser.tty.typeB.common.parser.ParserImpl;
+import edi.parser.util.ReflectionUtil;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.WeakHashMap;
-import java.util.Collections;
+import java.util.*;
 
 /**
  * Class for building MessageParser using mapping. Use top level annotations (@Group, @Segment, @BindAnnotation).
@@ -42,7 +28,7 @@ public class ParserBuilder {
         if (cache2.get(cls) != null) {
             return (EnchancedAdapter) cache2.get(cls);
         }
-       // separator = EdifactModule.getEdifactSeparator();
+        // separator = EdifactModule.getEdifactSeparator();
         separator = EdifactMessageConstants.AMADEUS_APOSTROPHE;
         MessageParser parser = new MessageParser(cls, separator);
 
@@ -86,6 +72,7 @@ public class ParserBuilder {
 
     /**
      * Parser build method for BSP hot files
+     *
      * @param <T>
      * @param cls
      * @return
@@ -178,7 +165,6 @@ public class ParserBuilder {
     }
 
 
-
     protected Mapping createGroupMapping(Field mappedField) {
         Class cls = ReflectionUtil.typeExtractor(mappedField);
         Group group = mappedField.getAnnotation(Group.class);
@@ -204,11 +190,12 @@ public class ParserBuilder {
      * 1. Try get from class using @BindClass
      * 2. Try get from spec annotation using @BindAnnotation
      * 3. Use defined in segment
+     *
      * @param segment
      * @param type
      * @return
      */
-    protected Adapter createSegmentAdapter(Class< ? extends Adapter> adapterClass, Class< ? > type, Field fieldAdapter) {
+    protected Adapter createSegmentAdapter(Class<? extends Adapter> adapterClass, Class<?> type, Field fieldAdapter) {
 
         Adapter adapter = cache.get(fieldAdapter);
         if (adapter != null) {

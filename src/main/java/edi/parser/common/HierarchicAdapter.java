@@ -1,12 +1,12 @@
 package edi.parser.common;
 
-import java.lang.reflect.Field;
-import java.util.Map;
-import java.util.HashMap;
-
 import edi.parser.engine.Adapter;
 import edi.parser.engine.CustomizableAdapter;
 import edi.parser.engine.ParseException;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Adapter for abstract class, when knowns all implementations of this class.

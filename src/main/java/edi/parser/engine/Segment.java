@@ -2,17 +2,13 @@ package edi.parser.engine;
 
 import edi.parser.message.common.parser.AnnotationSegmentAdapter;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * Any field of message which represent segemnt have to be annotated with this notation
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.ANNOTATION_TYPE })
+@Target({ElementType.FIELD, ElementType.ANNOTATION_TYPE})
 @Documented
 public @interface Segment {
     /**
@@ -46,13 +42,15 @@ public @interface Segment {
     /**
      * Specific adapter for segment.
      * AnnotationSegmentAdapter default adapter with use annotations on segment to parse it.
+     *
      * @return
      */
-    Class< ? extends Adapter> adapter() default AnnotationSegmentAdapter.class;
+    Class<? extends Adapter> adapter() default AnnotationSegmentAdapter.class;
 
     /**
      * Separator wich define groups of segments that can follow in message in any order - means unsorted group.
      * Have to be at least two in on message (open and close separator)
+     *
      * @return
      */
     boolean unsortSeparator() default false;

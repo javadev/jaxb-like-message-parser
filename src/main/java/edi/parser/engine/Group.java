@@ -1,10 +1,6 @@
 package edi.parser.engine;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import java.lang.annotation.Documented;
+import java.lang.annotation.*;
 
 /**
  * Group elements on beans must be annotated with this annotation
@@ -15,6 +11,7 @@ import java.lang.annotation.Documented;
 public @interface Group {
     /**
      * Oreder of field in parsed text
+     *
      * @return
      */
     int order() default 0;
@@ -26,6 +23,7 @@ public @interface Group {
 
     /**
      * Is group reqired
+     *
      * @return
      */
     boolean required() default false;

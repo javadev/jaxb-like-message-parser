@@ -1,19 +1,12 @@
 package edi.parser.message.common.parser;
 
-import edi.parser.engine.Adapter;
-import edi.parser.engine.CustomizableAdapter;
-import edi.parser.engine.ParseException;
-import edi.parser.engine.ParserBuildException;
-import edi.parser.engine.SegmentDeclarationTypeA;
-import edi.parser.engine.SegmentReader;
-import edi.parser.engine.ThreadSafeAdapter;
-import edi.parser.util.ReflectionUtil;
+import edi.parser.engine.*;
 import edi.parser.message.EdifactMessageConstants;
 import edi.parser.message.common.SegmentCompositeElement;
 import edi.parser.message.common.SegmentElement;
 import edi.parser.message.segment.MessageHeaderSegment;
 import edi.parser.message.segment.MessageTrailerSegment;
-
+import edi.parser.util.ReflectionUtil;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
@@ -27,7 +20,7 @@ import java.util.List;
 public class AnnotationSegmentAdapter implements Adapter, ThreadSafeAdapter, CustomizableAdapter {
     private static final Logger LOG = Logger.getLogger(AnnotationSegmentAdapter.class);
 
-    private Class< ? > cls;
+    private Class<?> cls;
 
     private SegmentDeclarationTypeA segmentDeclaration;
     private List<CompositeElementMapping> mappings;
@@ -42,7 +35,7 @@ public class AnnotationSegmentAdapter implements Adapter, ThreadSafeAdapter, Cus
 
     ///////////////////////////////////////////////////////////////////////////
     /// BUILD CODE
-    public void setClass(Class< ? > cls) {
+    public void setClass(Class<?> cls) {
         this.cls = cls;
     }
 
@@ -50,7 +43,7 @@ public class AnnotationSegmentAdapter implements Adapter, ThreadSafeAdapter, Cus
         return cls;
     }
 
-    public void setCls(Class< ? > cls) {
+    public void setCls(Class<?> cls) {
         this.cls = cls;
     }
 
@@ -59,9 +52,8 @@ public class AnnotationSegmentAdapter implements Adapter, ThreadSafeAdapter, Cus
     }
 
 
-
     public void setField(Field mappedField) throws Exception {
-        Class< ? > type = ReflectionUtil.typeExtractor(mappedField);
+        Class<?> type = ReflectionUtil.typeExtractor(mappedField);
         SegmentDeclarationTypeA declarationTypeA = type.getAnnotation(SegmentDeclarationTypeA.class);
         AnnotationSegmentAdapter annotationAdapter = this;
         List<Field> fileds = ReflectionUtil.getAllFields(type);
@@ -89,11 +81,11 @@ public class AnnotationSegmentAdapter implements Adapter, ThreadSafeAdapter, Cus
 
                 Adapter segmentElementAdapter = elementAnnotation.adapter().newInstance();
                 compositeElement.getMapping().add(new SegmentElementMapping(
-                        field,
-                        elementAnnotation,
-                        segmentElementAdapter,
-                        field.getType()
-                )
+                                field,
+                                elementAnnotation,
+                                segmentElementAdapter,
+                                field.getType()
+                        )
                 );
             } else if (compositeElementAnnotation != null) {
                 compositeElement = new CompositeElementMapping(field, ReflectionUtil.typeExtractor(field), compositeElementAnnotation);
@@ -124,11 +116,11 @@ public class AnnotationSegmentAdapter implements Adapter, ThreadSafeAdapter, Cus
 
                 Adapter segmentElementAdapter = element.adapter().newInstance();
                 mappings.add(new SegmentElementMapping(
-                        field,
-                        element,
-                        segmentElementAdapter,
-                        field.getType()
-                )
+                                field,
+                                element,
+                                segmentElementAdapter,
+                                field.getType()
+                        )
                 );
             }
         }
@@ -247,7 +239,7 @@ public class AnnotationSegmentAdapter implements Adapter, ThreadSafeAdapter, Cus
     }
 
     public Object deserialize(String data) {
-       //not accept input
+        //not accept input
         if (!data.startsWith(getSegmentName())) {
             return null;
         }

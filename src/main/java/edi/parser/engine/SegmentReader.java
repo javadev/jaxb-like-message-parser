@@ -8,33 +8,38 @@ public interface SegmentReader {
      * If you use plain text grammar try use readUnparsedData and setReadedCharsCount instead
      * NOT RECOMEDED in plain text grammar:
      * If we use setReadedCharsCount we not move to next segment and return to cuurent.
+     *
      * @return
      */
-    public String readSegment();
+    String readSegment();
 
     /**
      * We must use setPosition/getProsition insetead
+     *
      * @return
      */
     @Deprecated
-    public SegmentReader clone();
+    SegmentReader clone();
 
-    public String readUnparsedData();
+    String readUnparsedData();
 
     /**
      * Move cursor by charCount.
+     *
      * @param charCount
      * @return true if the segment string is end, false otherwise
      */
-    public boolean setReadedCharsCount(int charCount);
+    boolean setReadedCharsCount(int charCount);
 
-    public boolean isFinished();
+    boolean isFinished();
 
-    public int getProsition();
+    int getProsition();
 
-    public void setPosition(int position);
+    void setPosition(int position);
 
-    public Object getContainer();
-    public void setContainer(Object value);
-    public String getSeparator();
+    Object getContainer();
+
+    void setContainer(Object value);
+
+    String getSeparator();
 }

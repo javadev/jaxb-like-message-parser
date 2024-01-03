@@ -1,7 +1,7 @@
 package edi.parser.engine.impl;
 
-import edi.parser.engine.SegmentReader;
 import edi.parser.engine.CustomizableAdapter;
+import edi.parser.engine.SegmentReader;
 
 import java.lang.reflect.Field;
 

@@ -1,12 +1,6 @@
 package edi.parser.engine.impl;
 
-import edi.parser.engine.Adapter;
-import edi.parser.engine.EnchancedAdapter;
-import edi.parser.engine.ParseException;
-import edi.parser.engine.ParserBuildException;
-import edi.parser.engine.PlainTextAdapter;
-import edi.parser.engine.SegmentReader;
-import edi.parser.engine.ThreadSafeAdapter;
+import edi.parser.engine.*;
 import org.apache.log4j.Logger;
 
 import java.lang.reflect.Constructor;
@@ -23,7 +17,7 @@ public class MessageParser implements AbstractParser, ThreadSafeAdapter {
     private String separator;
     protected int lookahed = 1;
     protected boolean useLookahedWithAllRequired = true;
-    private Constructor< ? extends SegmentReader> segmentReaderConstructor;
+    private Constructor<? extends SegmentReader> segmentReaderConstructor;
 
 
     public void setLookahed(int lookahed) {
@@ -39,7 +33,7 @@ public class MessageParser implements AbstractParser, ThreadSafeAdapter {
         return mappings;
     }
 
-    public void setSegmentReaderClass(Class< ? extends SegmentReader> segmentReaderClass) {
+    public void setSegmentReaderClass(Class<? extends SegmentReader> segmentReaderClass) {
         try {
             segmentReaderConstructor = segmentReaderClass.getConstructor(String.class, String.class);
         } catch (Exception e) {

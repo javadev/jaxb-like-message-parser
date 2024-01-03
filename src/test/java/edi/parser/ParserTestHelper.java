@@ -16,7 +16,7 @@ public class ParserTestHelper {
             "net.worldticket.edi.parser"
     );
     static Level toLevel = Level.INFO;
-    static Map<String, Level> logToLevel = new HashMap();
+    static Map<String, Level> logToLevel = new HashMap<>();
 
     public static void turnOffParserLog() {
         for(String log : loggers) {

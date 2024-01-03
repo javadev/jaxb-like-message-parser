@@ -1,12 +1,13 @@
 package edi.parser.common;
 
+import edi.parser.engine.Adapter;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import edi.parser.engine.Adapter;
-
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HierarchicAdapterPropety {
-    Class< ? extends Adapter> adapter();
+    Class<? extends Adapter> adapter();
+
     Class objectClass();
 }

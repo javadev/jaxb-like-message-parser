@@ -1,8 +1,8 @@
 package edi.parser.message.common.parser;
 
-import edi.parser.message.common.SegmentElement;
 import edi.parser.engine.Adapter;
 import edi.parser.engine.impl.Mapping;
+import edi.parser.message.common.SegmentElement;
 
 import java.lang.reflect.Field;
 

@@ -1,22 +1,17 @@
 package edi.parser.common.impl;
 
+import edi.parser.common.CodedEnum;
+import edi.parser.common.EnumAdapter;
+import edi.parser.engine.*;
+import edi.parser.util.CollectionUtil;
+import edi.parser.util.Predicate;
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import edi.parser.common.CodedEnum;
-import edi.parser.common.EnumAdapter;
-import edi.parser.engine.CustomizableAdapter;
-import edi.parser.engine.EnchancedAdapter;
-import edi.parser.engine.ParseException;
-import edi.parser.engine.ParserBuildException;
-import edi.parser.engine.SegmentReader;
-import edi.parser.util.CollectionUtil;
-import edi.parser.util.Predicate;
-
-import org.apache.log4j.Logger;
 
 public class EnumAdapterImpl implements EnchancedAdapter, CustomizableAdapter {
     private static final Logger LOG = Logger.getLogger(EnumAdapterImpl.class);
@@ -74,7 +69,7 @@ public class EnumAdapterImpl implements EnchancedAdapter, CustomizableAdapter {
         }
         enumClass = field.getType();
         regExp = Pattern.compile(annot.regexp());
-        valuesMethod = enumClass.getMethod("values", new Class[] {});
+        valuesMethod = enumClass.getMethod("values", new Class[]{});
         if (!enumClass.isEnum() || !CodedEnum.class.isAssignableFrom(enumClass)) {
             throw new ParserBuildException("Incorrect enum class[not impleemtn CodedEnum or is not enum], class = " + enumClass);
         }
