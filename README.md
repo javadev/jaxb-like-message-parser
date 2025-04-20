@@ -1,7 +1,7 @@
 jaxb-like-message-parser
 ========================
 
-[![Java CI](https://github.com/javadev/jaxb-like-message-parser/actions/workflows/maven.yml/badge.svg)](https://github.com/javadev/jaxb-like-message-parser/actions/workflows/maven.yml)
+[![Java CI](https://github.com/javadev/jaxb-like-message-parser/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/javadev/jaxb-like-message-parser/actions/workflows/maven.yml)
 
 The annotation based message parser
 
